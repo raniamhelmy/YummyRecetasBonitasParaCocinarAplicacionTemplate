@@ -201,6 +201,18 @@ border-color: var(--second-color)!important;
   align-items: center;
 }
 
+.loadingMain{
+   /* display:none; */
+   position: fixed;
+   z-index: 9999;
+   inset: 0;
+   background-color: var(--main-color)!important;
+   /* background-color: #272b30e3; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .loader {
   width: 32px;
   height: 72px;

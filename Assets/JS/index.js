@@ -975,10 +975,17 @@ function inputsAreValid() {
 /****************************Event Listeners******************************* */
 
 documentHTML.addEventListener("DOMContentLoaded", function () {
+  // setTimeout(function () {
+  //   $("#LoadingIcon").hide(5000);
+  // }, 5000);
+  // LoadingIcon.classList.add("d-none");
+  
+  $('#LoadingMain').animate({opacity: 1}, 2000);
+  $('#LoadingMain').animate({opacity:0}, 1500);
   setTimeout(function () {
-    $("#LoadingIcon").hide(5000);
-  }, 5000);
-  LoadingIcon.classList.add("d-none");
+    $("#LoadingMain").addClass("d-none");
+  }, 3500);
+ 
   closeSideBar();
   getStartMeals();
   themeConfiguration();
