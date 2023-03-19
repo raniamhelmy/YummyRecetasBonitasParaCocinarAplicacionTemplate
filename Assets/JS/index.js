@@ -4,8 +4,6 @@ const LoadingIcon = documentHTML.getElementById("LoadingIcon");
 const workContainer = documentHTML.getElementById("workContainer");
 const searchContainer = documentHTML.getElementById("searchContainer");
 
-
-
 //Action Btns
 const searchBtn = documentHTML.getElementById("searchBtn");
 const categoriesBtn = documentHTML.getElementById("categoriesBtn");
@@ -29,7 +27,6 @@ let teleInputTouched = false;
 let ageInputTouched = false;
 let passInputTouched = false;
 let rePassInputTouched = false;
-
 
 /*****************************Functions******************************** */
 
@@ -392,16 +389,14 @@ function displayIngredientMeals(data) {
 async function fetchSearch() {
   searchContainer.classList.remove("d-none");
   workContainer.innerHTML = ``;
-  documentHTML.getElementById('searchName').value='';
-  documentHTML.getElementById('searchLetter').value='';
+  documentHTML.getElementById("searchName").value = "";
+  documentHTML.getElementById("searchLetter").value = "";
 }
 
-
 async function searchByName(name) {
-  documentHTML.getElementById('searchLetter').value=''
-  workContainer.innerHTML = ""
+  documentHTML.getElementById("searchLetter").value = "";
+  workContainer.innerHTML = "";
   LoadingIcon.classList.remove("d-none");
-  
 
   const options = {
     method: "GET",
@@ -414,37 +409,37 @@ async function searchByName(name) {
   response = await response.json();
 
   //console.log(response.meals);
- 
-  response.meals ? displaySMeals(response.meals) : displaySMeals([])
+
+  response.meals ? displaySMeals(response.meals) : displaySMeals([]);
 
   LoadingIcon.classList.add("d-none");
 }
 
 async function searchByFLetter(letter) {
-  documentHTML.getElementById('searchName').value=''
+  documentHTML.getElementById("searchName").value = "";
   workContainer.innerHTML = "";
   LoadingIcon.classList.remove("d-none");
 
-const options = {
-  method: "GET",
-};
+  const options = {
+    method: "GET",
+  };
 
-//to solve the { error uncaught (in promise) syntaxerror unexpected end of json input}
-//caused by the EndPoint 
-letter == ''? letter = 'r' : ''
+  //to solve the { error uncaught (in promise) syntaxerror unexpected end of json input}
+  //caused by the EndPoint
+  letter == "" ? (letter = "r") : "";
 
-let response = await fetch(
-  `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`,options
-);
+  let response = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`,
+    options
+  );
 
-response = await response.json();
+  response = await response.json();
 
-//console.log(response.meals);
+  //console.log(response.meals);
 
-response.meals ? displaySMeals(response.meals) : displaySMeals([]);
+  response.meals ? displaySMeals(response.meals) : displaySMeals([]);
 
-LoadingIcon.classList.add("d-none");
-
+  LoadingIcon.classList.add("d-none");
 }
 
 function displaySMeals(data) {
@@ -473,11 +468,10 @@ function displaySMeals(data) {
 
 /********************************* Meal Details**************************** */
 
-async function getMealDetails(id){
-  workContainer.innerHTML = ""
+async function getMealDetails(id) {
+  workContainer.innerHTML = "";
   LoadingIcon.classList.remove("d-none");
   searchContainer.classList.add("d-none");
-  
 
   const options = {
     method: "GET",
@@ -490,43 +484,43 @@ async function getMealDetails(id){
   response = await response.json();
 
   //console.log(response.meals[0]);
- 
+
   displayMealDetails(response.meals[0]);
 
   LoadingIcon.classList.add("d-none");
 }
 
-function displayMealDetails(data){
-
+function displayMealDetails(data) {
   workContainer.innerHTML = ``;
 
-  let ingredients = ``
+  let ingredients = ``;
 
   for (let i = 1; i <= 20; i++) {
-      if (data[`strIngredient${i}`]) {
-          ingredients += `<li class="alert alert-info m-2 p-1">${data[`strMeasure${i}`]} ${data[`strIngredient${i}`]}</li>`
-      }
-  }
-
-
-  let steps = ``
-  let stepsArr = data.strInstructions.split(/\r?\n|\r|\n/g)
-
-  for (let i = 0; i <stepsArr.length; i++) {
-    if (stepsArr[i]) {
-          steps += `<li class="m-2 p-1">${stepsArr[i]}</li>`
+    if (data[`strIngredient${i}`]) {
+      ingredients += `<li class="alert alert-info m-2 p-1">${
+        data[`strMeasure${i}`]
+      } ${data[`strIngredient${i}`]}</li>`;
     }
   }
 
-  let tags = data.strTags?.split(",")
- 
-  if (!tags) tags = []
+  let steps = ``;
+  let stepsArr = data.strInstructions.split(/\r?\n|\r|\n/g);
 
-  let tagsContainer = ''
+  for (let i = 0; i < stepsArr.length; i++) {
+    if (stepsArr[i]) {
+      steps += `<li class="m-2 p-1">${stepsArr[i]}</li>`;
+    }
+  }
+
+  let tags = data.strTags?.split(",");
+
+  if (!tags) tags = [];
+
+  let tagsContainer = "";
   for (let i = 0; i < tags.length; i++) {
     if (tags[i]) {
-    tagsContainer += `
-      <li class="alert alert-info m-2 p-1">${tags[i]}</li>`
+      tagsContainer += `
+      <li class="alert alert-info m-2 p-1">${tags[i]}</li>`;
     }
   }
 
@@ -554,9 +548,9 @@ function displayMealDetails(data){
 
               <a target="_blank" href="${data.strSource}" class="btn main-btn">Source</a>
               <a target="_blank" href="${data.strYoutube}" class="btn main-btn">Youtube</a>
-          </div>`
+          </div>`;
 
-   workContainer.innerHTML = `
+  workContainer.innerHTML = `
   <div class='position-relative w-100'>
   <i class="fa-solid fa-xmark me-2 fa-xl position-absolute end-0 top-25" id='closeBtn'></i>
   </div>
@@ -566,7 +560,6 @@ function displayMealDetails(data){
 
   closeBtn = documentHTML.getElementById("closeBtn");
   closeBtn.addEventListener("click", getStartMeals);
-
 }
 
 /*****************************Local Storage******************************** */
@@ -829,6 +822,21 @@ function ContactUS() {
     e.preventDefault();
     if (inputsAreValid()) {
       setForm();
+      // Fire This Function when a New Entry Added
+      Toastify({
+        text: "Message Sent Successfully",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #cdd4d3, #d22c5a)",
+        },
+        onClick: function () {}, // Callback after click
+      }).showToast();
     }
   });
 
@@ -1016,5 +1024,3 @@ contactBtn.addEventListener("click", function (e) {
 });
 
 returnHome.addEventListener("click", getStartMeals);
-
-

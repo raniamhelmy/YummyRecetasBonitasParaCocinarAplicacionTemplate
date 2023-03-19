@@ -6,7 +6,10 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Cocinatis Website" />
-    <meta name="keywords" content="Recetas de comida , Food Recipes , وصفات طعام " />
+    <meta
+      name="keywords"
+      content="Recetas de comida , Food Recipes , وصفات طعام "
+    />
     <meta name="author" content="RANIA M. HELMY" />
 
     <!---------------------------Fonts used in this App------------------------------------------------------>
@@ -18,12 +21,17 @@
       rel="stylesheet"
     />
 
-      <!-------------------------------Animation CSS------------------------------------------------------>
+    <!----------------------------- ToastifyJs script ------------------------------->
 
-      <link
+    <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
     <!--------------------------------Style Files ------------------------------------------>
     <link
@@ -50,8 +58,12 @@
   <body>
     <!-- fixed switch button -->
 
-    <span class="position-fixed bottom-0 end-0 m-3" id='fixedButton'>
-      <i role="button" id="mode" class="fa-solid fa-sun fa-xl fa-beat position-relative p-3"></i>
+    <span class="position-fixed bottom-0 end-0 m-3" id="fixedButton">
+      <i
+        role="button"
+        id="mode"
+        class="fa-solid fa-sun fa-xl fa-beat position-relative p-3"
+      ></i>
     </span>
 
     <!-- --------------------- Start Aside NavBar --------------------- -->
@@ -62,31 +74,41 @@
       >
         <div class="nav-links">
           <ul class="list-unstyled overflow-hidden">
-            <li id='searchBtn'
-              class="py-2 position-relative cursor-pointer"
-            >
-             <h5><i class="fa-solid fa-magnifying-glass my-0 py-0 fa-md"></i> Search</h5>
+            <li id="searchBtn" class="py-2 position-relative cursor-pointer">
+              <h5>
+                <i class="fa-solid fa-magnifying-glass my-0 py-0 fa-md"></i>
+                Search
+              </h5>
             </li>
-            <li id='categoriesBtn'
+            <li
+              id="categoriesBtn"
               class="py-2 position-relative cursor-pointer"
             >
-              <h5><i class=" my-0 py-0 fa-md me-2 fa-solid fa-burger"></i> Categories</h5>
+              <h5>
+                <i class="my-0 py-0 fa-md me-2 fa-solid fa-burger"></i>
+                Categories
+              </h5>
             </li>
-            <li id='areaBtn'
-              class="py-2 position-relative cursor-pointer"
-            >
-              <h5><i class=" my-0 py-0 fa-md me-2 fa-solid fa-globe"></i> Area</h5>
-             </li> <!--onclick="getIngredients();" -->
-            <li id='ingrediantesBtn'
-             
-              class="py-2 position-relative cursor-pointer"
-            >
-              <h5><i class=" my-0 py-0 fa-md me-2 fa-solid fa-carrot"></i> Ingredients</h5>
+            <li id="areaBtn" class="py-2 position-relative cursor-pointer">
+              <h5>
+                <i class="my-0 py-0 fa-md me-2 fa-solid fa-globe"></i> Area
+              </h5>
             </li>
-            <li id='contactBtn'
+            <!--onclick="getIngredients();" -->
+            <li
+              id="ingrediantesBtn"
               class="py-2 position-relative cursor-pointer"
             >
-              <h5><i class=" my-0 py-0 fa-md me-2 fa-solid fa-phone"></i> Contact Us</h5>
+              <h5>
+                <i class="my-0 py-0 fa-md me-2 fa-solid fa-carrot"></i>
+                Ingredients
+              </h5>
+            </li>
+            <li id="contactBtn" class="py-2 position-relative cursor-pointer">
+              <h5>
+                <i class="my-0 py-0 fa-md me-2 fa-solid fa-phone"></i> Contact
+                Us
+              </h5>
             </li>
           </ul>
         </div>
@@ -103,12 +125,19 @@
         </div>
       </div>
 
-
       <div
         class="nav-header d-flex flex-column justify-content-between py-4 text-center px-3"
       >
-        <img class="logo" src="./Assets/Images/img1.png" alt="logo image" srcset="" />
-        <i class="fa-solid open-close-icon fa-align-justify fa-2x" id='toggleIcone'></i>
+        <img
+          class="logo"
+          src="./Assets/Images/img1.png"
+          alt="logo image"
+          srcset=""
+        />
+        <i
+          class="fa-solid open-close-icon fa-align-justify fa-2x"
+          id="toggleIcone"
+        ></i>
         <div>
           <i class="fa-solid fa-globe d-block fa-lg mb-4"></i>
           <i class="fa-solid fa-share-nodes fa-lg"></i>
@@ -120,28 +149,44 @@
 
     <div class="container">
       <div class="row py-5 g-4 position-relative d-none" id="searchContainer">
-        <div class='position-relative w-100'>
-          <i class="fa-solid fa-xmark me-2 fa-xl position-absolute end-0 top-25" id='returnHome'></i>
-          </div>
-        <div class="row py-4 mx-auto w-75 ">
-          <div class="col-md-6 ">
-              <input id='searchName' onkeyup="searchByName(this.value)" aria-label="Search" class="form-control bg-transparent  mb-3" type="search" placeholder="Search By Name">
+        <div class="position-relative w-100">
+          <i
+            class="fa-solid fa-xmark me-2 fa-xl position-absolute end-0 top-25"
+            id="returnHome"
+          ></i>
+        </div>
+        <div class="row py-4 mx-auto w-75">
+          <div class="col-md-6">
+            <input
+              id="searchName"
+              onkeyup="searchByName(this.value)"
+              aria-label="Search"
+              class="form-control bg-transparent mb-3"
+              type="search"
+              placeholder="Search By Name"
+            />
           </div>
           <div class="col-md-6">
-              <input id='searchLetter' onkeyup="searchByFLetter(this.value)" aria-label="Search" maxlength="1" class="form-control bg-transparent mb-3" type="search" placeholder="Search By First Letter">
+            <input
+              id="searchLetter"
+              onkeyup="searchByFLetter(this.value)"
+              aria-label="Search"
+              maxlength="1"
+              class="form-control bg-transparent mb-3"
+              type="search"
+              placeholder="Search By First Letter"
+            />
           </div>
+        </div>
       </div>
-      </div>
-      <div class="row py-5 g-4 position-relative " id="workContainer">
-          
-      </div>
-  </div>
+      <div class="row py-5 g-4 position-relative" id="workContainer"></div>
+    </div>
 
     <!-- --------------------- Start Loading --------------------- -->
 
-    <div class="loading" id='LoadingIcon'>
+    <div class="loading" id="LoadingIcon">
       <span class="loader"></span>
-   </div>
+    </div>
 
     <!----------------------------- JQuery script ------------------------------->
 
