@@ -1,0 +1,227 @@
+/************************************************Theme Customize*************************************/
+[data-theme="dark"] {
+  --main-color: #010101;
+  --second-color: #A70000;
+  --color-text: #fff;
+  --btn-main-color: #C92120; 
+  --layer-color:rgba(201, 193, 193, 0.705);
+}
+
+[data-theme="light"] {
+  --main-color: #eeeeee;
+  --second-color: #B0721D;
+  --color-text: #010101;
+  --btn-main-color: #77F82A;
+  --layer-color:rgba(249, 246, 246, 0.792);
+  /* --color:#5a0510; */
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: display 0.5s;
+}
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--second-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-text);
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+
+/*****************************************************************************************************/
+
+/*************************************Global Configurations ******************************************/
+
+/*body{
+   background-color: #0D0D0D;
+  color: #f9f6f6 !important; 
+}*/
+
+body {
+  /* overflow: hidden; */
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: var(--main-color);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lobster', cursive;
+  color: var(--color-text) !important;
+}
+
+.main-btn {
+  background-color: var(--btn-main-color);
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.btn{
+  background-color: var(--btn-main-color);
+  color: var(--color-text);
+}
+
+.btn:hover{
+  color: var(--color-text);
+}
+
+.main-btn:hover {
+  filter:grayscale(0.5);
+}
+
+/***************************************************Fixed Button**************************************/
+#mode{
+  z-index:100;
+}
+
+#fixedButton{
+z-index:100;
+} 
+
+/*****************************************************************************************************/
+
+/*************************************NavBar Configurations ******************************************/
+.nav-tab{
+  background-color:var(--main-color);
+  color:var(--color-text);
+}
+
+.logo{
+  width: 50px;
+}
+
+i{
+  cursor: pointer;
+}
+
+.side-nav-menu{
+  z-index: 99;
+  margin-left:0 ;
+  left: 0;
+  
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.nav-header{
+background-color: var(--color-text); 
+color:var(--main-color);
+}
+
+
+/*************************************************************************************************/
+
+.meal h3{
+  color: var(--main-color);
+}
+
+.meal p{
+  color: var(--second-color);
+}
+
+.meal-layer{
+  width: 100%;
+  height: 100%;
+  background-color:var(--layer-color);
+  top: 100%;
+  transition: .5s;
+}
+
+.meal:hover .meal-layer{
+  top: 0;
+}
+
+.alert{
+  width: fit-content;
+}
+
+.flagIcon{
+color: var(--second-color);
+}
+
+#searchContainer .form-control{
+color: var(--color-text)!important;
+}
+
+#searchContainer{
+margin-left: 60px;
+}
+
+.alert-info {
+color: var(--color-text)!important;
+background-color: var(--second-color)!important;
+border-color: var(--second-color)!important;
+
+}
+/**************************************************************************************************************/
+
+/************************************************** Contact ****************************************************/
+
+#toggler, #togglerRepass{
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  transform: translateY(-25%);
+  color:var(--main-color);
+  cursor: pointer;
+  z-index: 5;
+}
+
+/**************************************************************************************************************/
+
+/************************************************** Loader ****************************************************/
+.loading {
+  /* display:none; */
+  position: fixed;
+  z-index: 90;
+  /* z-index: 9999; */
+  inset: 0;
+  background-color: var(--main-color)!important;
+  /* background-color: #272b30e3; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 32px;
+  height: 72px;
+  display: inline-block;
+  left: 5px;
+  position: relative;
+  border: 2px solid #FFF;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite alternate;
+  color: var(--btn-main-color)!important;
+  border-radius: 0 0 4px 4px;
+  transform: perspective(140px) rotateX(-45deg);
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 0 0  inset;
+  }
+  100% {
+    box-shadow: 0 -70px inset;
+  }
+}
+
+/***********************************************************************************************/
