@@ -621,10 +621,10 @@ function openSideBar() {
 }
 
 function closeSideBar() {
-  let navWidth = $(".side-nav-menu .nav-tab").outerWidth();
+  //let navWidth = $(".side-nav-menu .nav-tab").outerWidth();
   $(".side-nav-menu").animate(
     {
-      left: -navWidth,
+      left: -220.703,
     },
     800
   );
