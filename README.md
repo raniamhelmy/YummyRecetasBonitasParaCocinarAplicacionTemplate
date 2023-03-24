@@ -1,6 +1,6 @@
 # Yummy Recetas Bonitas Aplicación Template
 
-Yumm is the smart cooking app that's all about YOU! With customizable meal plans, personalized recipe recommendations, Yummy is here to help you conquer the kitchen, your way.
+Yummy is the smart cooking app that's all about YOU! With customizable meal plans, personalized recipe recommendations, Yummy is here to help you conquer the kitchen, your way.
 
 This App Includes: 
 * Theme Configuration --> Support different Theme modes including a Dark and a Light Ones
